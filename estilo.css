@@ -1,6 +1,6 @@
 body{
     font-family: 'Courier New', Courier, monospace;
-    background-image: url(../imagenes/ChatGPT\ Image\ 29\ ago\ 2025\,\ 10_28_51\ a.m..png);
+    background-image: url(ChatGPT\ Image\ 29\ ago\ 2025\,\ 10_28_51\ a.m..png);
 }
 .container{
     background-color: hsla(0, 7%, 92%, 0.9);
@@ -89,4 +89,5 @@ h4{
 
 .opcionBloq{
     pointer-events: none;
+
 }  
