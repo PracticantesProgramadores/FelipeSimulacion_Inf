@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Actividad de informatica</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Actividad Informatica</h1>
+            <h3>Para esta actividad deberas seleccionar una opcion de una columna y emparejarla correctamente con una de las opciones de la otra columna. <br> Selecciona todas las opciones para poder finalizar el ejercicio. </h3>
+        </div>
+        <div class="containerOp">
+            <div class="columna" id="colA">
+                <div class="opcion" data-id="1">
+                    <p>CPU<br><br></p>
+                </div>
+                <div class="opcion" data-id="2">
+                    <p>Disco Duro<br><br></p>
+                </div>
+                <div class="opcion" data-id="3">
+                    <p>Teclado<br><br></p>
+                </div>
+                <div class="opcion" data-id="4">
+                    <p>Monitor<br><br></p>
+                </div>
+                <div class="opcion" data-id="5">
+                    <p>RAM<br><br></p>
+                </div>
+                <div class="opcion" data-id="6">
+                    <p>Python<br><br></p>
+                </div>
+                <div class="opcion" data-id="7">
+                    <p>Sistema operativo<br><br></p>
+                </div>
+                <div class="opcion" data-id="8">
+                    <p><br>Router<br><br></p>
+                </div>
+            </div>
+            <div class="columna" id="colB">
+                <div class="opcion" data-id="1">
+                    <p>Unidad central de procesamiento</p>
+                </div>
+                <div class="opcion" data-id="2">
+                    <p>Almacenamiento permanente de datos</p>
+                </div>
+                <div class="opcion" data-id="3">
+                    <P>Dispositivo de entrada</P>
+                </div>
+                <div class="opcion" data-id="4">
+                    <p>Dispositivo de salida</p>
+                </div>
+                <div class="opcion" data-id="5">
+                    <p>Memoria temporal de trabajo</p>
+                </div>
+                <div class="opcion" data-id="6">
+                    <p>Lenguaje de programación</p>
+                </div>
+                <div class="opcion" data-id="7">
+                    <p>Software que gestiona el hardware</p>
+                </div>
+                <div class="opcion" data-id="8">
+                    <p>Dispositivo de red para conectar equipos a Internet</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="../html/actividad.html"><button class="btnR">Reiniciar</button></a>
+            <button class="btnF" onclick="finalizar()">Finalizar</button>
+        </div>
+    </div>
+
+    <script>
+        let opcion1= null;
+        let opcion2= null;
+        let respC= 0;
+        let cont= 0;
+
+        function mezclarOpciones(contenedorId){
+            const contenedor= document.getElementById(contenedorId);
+            const opciones= Array.from(contenedor.children);
+
+            for(let i= opciones.length - 1; i>0; i--){
+                const j= Math.floor(Math.random() * (i+1));
+                [opciones[i], opciones[j]] = [opciones[j], opciones[i]];
+            }
+            opciones.forEach(op => contenedor.appendChild(op));
+        }
+        mezclarOpciones("colA");
+        mezclarOpciones("colB");
+
+        const opciones= document.querySelectorAll(".opcion");
+
+        opciones.forEach(opcion => {
+            opcion.addEventListener("click", () => {
+                const parentId= opcion.parentElement.id;
+
+                if(parentId === "colA"){ 
+                    if (opcion1) opcion1.classList.remove("seleccionado");
+                    opcion1 = opcion;
+                    opcion.classList.add("seleccionado");
+                }
+                if (parentId === "colB"){
+                    if (opcion2) opcion2.classList.remove("seleccionado");
+                    opcion2 = opcion;
+                    opcion.classList.add("seleccionado");
+                } 
+                if(opcion1 && opcion2){
+                    if(opcion1.dataset.id === opcion2.dataset.id){
+                        opcion1.classList.add("correcto");
+                        opcion2.classList.add("correcto");
+                        respC++;
+                        cont++;
+                    }else{  
+                        opcion1.classList.add("incorrecto");
+                        opcion2.classList.add("incorrecto");
+                        cont++;
+                        setTimeout(() => {
+                            opcion1.classList.remove("incorrecto", "seleccionado");
+                            opcion2.classList.remove("incorrecto", "seleccionado");
+                        }, 1000);
+                    }
+                    opcion1= null;
+                    opcion2= null;
+                }
+            })
+        })
+        function finalizar(){
+            if(cont == 8){
+                let msj= "Respuestas correctas: "+respC;
+                alert("Felicitaciones!, terminaste la actividad. \n"+msj);
+                window.location.href= 'index.html';
+            }else{
+                alert("Selecciona todas las opciones para poder finalizar la actividad");
+            }
+        }
+    </script>
+</body>
+</html> 

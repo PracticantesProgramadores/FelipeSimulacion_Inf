@@ -1,0 +1,92 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url(../imagenes/ChatGPT\ Image\ 29\ ago\ 2025\,\ 10_28_51\ a.m..png);
+}
+.container{
+    background-color: hsla(0, 7%, 92%, 0.9);
+    border-radius: 30px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 4px solid;
+}
+.containerOp{
+    background-color: rgba(134, 135, 136, 0.5);
+    border-radius: 30px;
+    margin-left: 18%;
+    margin-right: 18%;
+    border: 4px solid;
+    border-color: rgb(115, 115, 121);
+}
+h1{
+    background-color: rgb(144, 165, 233);
+    border-radius: 30px;
+    margin-left: 18%;
+    margin-right: 18%;
+    border: 4px solid;
+}
+h3{
+    background-color: rgb(144, 165, 233);
+    border-radius: 30px;
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-bottom: 14px;
+    border: 4px solid;
+    padding: 20px;
+}
+h4{
+    background-color: rgb(144, 165, 233);
+    border-radius: 30px;
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-bottom: 14px;
+    border: 4px solid;
+    padding: 20px;
+}
+.opcion{
+    background-color: bisque;
+    border: 3px solid;
+    margin: 3px;
+    cursor: pointer;
+}
+.btnR{
+    background-color:rgb(0, 0, 0);
+    border-radius: 30px;
+    border-color: white;
+    padding: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    color: white;
+    border: 2px solid;
+}
+.btnF{
+    background-color:rgb(244, 245, 242);
+    border-radius: 30px;
+    padding: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: 2px solid;
+}
+.seleccionado{
+    background-color: yellow;
+}
+.correcto{
+    background: lightgreen;
+}
+.incorrecto{
+    background: lightcoral;
+}
+
+.columna{
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    vertical-align: top;
+}
+
+.opcionBloq{
+    pointer-events: none;
+}  
